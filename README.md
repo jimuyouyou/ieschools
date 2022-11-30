@@ -2,8 +2,8 @@
 - show ireland primary school data with charts
   
 # technologies applied in this project
-- typescrit
-- react
-- sass
+- [typescrit](https://www.typescriptlang.org/)
+- [react](https://reactjs.org/)
+- [sass](https://sass-lang.com/)
 - reponsive design
 - WCAG
