@@ -3,8 +3,10 @@ import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { store } from './app/store';
 import App from './App';
+import AppGuide from './AppGuide';
 import reportWebVitals from './reportWebVitals';
 import './index.css';
+import './styles/main.scss';
 
 const container = document.getElementById('root')!;
 const root = createRoot(container);
@@ -12,7 +14,7 @@ const root = createRoot(container);
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      <AppGuide />
     </Provider>
   </React.StrictMode>
 );
