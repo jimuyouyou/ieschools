@@ -11,10 +11,13 @@ import './styles/main.scss';
 const container = document.getElementById('root')!;
 const root = createRoot(container);
 
+const showSchool = true;
+
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <AppGuide />
+      {showSchool && <App /> }
+      {!showSchool && <AppGuide /> }
     </Provider>
   </React.StrictMode>
 );
