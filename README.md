@@ -1,9 +1,5 @@
-# ieschools chart based on public data
-- show ireland primary school data with charts
-  
-# technologies applied in this project
-- [typescrit](https://www.typescriptlang.org/)
-- [react](https://reactjs.org/)
-- [sass](https://sass-lang.com/)
-- reponsive design
-- WCAG
+# A demo project based following technologies
+- [React](https://reactjs.org/)
+- [Redux](https://redux.js.org/) 
+- [Redux Toolkit](https://redux-toolkit.js.org/)
+- [TypeScript](https://www.typescriptlang.org/docs/handbook/2/basic-types.html)
