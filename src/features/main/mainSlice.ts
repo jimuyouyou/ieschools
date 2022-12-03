@@ -69,7 +69,6 @@ export const loadCounties = createAsyncThunk(
 export const loadSchools = createAsyncThunk(
   'main/loadSchools',
   async () => {
-    console.log('a', schools)
     return schools
   }
 );

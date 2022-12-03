@@ -1,3 +1,26 @@
 body {
   background-color: gray;
 }
+
+.dropdown-wrapper {
+  width: fit-content;
+
+  .arrow-down {
+    display     : inline-block;
+    width       : 0;
+    height      : 0;
+    border-left : 14px solid transparent;
+    border-right: 14px solid transparent;
+    border-top  : 14px solid #393947;
+  }
+
+  .dropdown-items {
+    max-height: 400px;
+    overflow-y: auto;
+
+
+    .dropdown-item {
+      list-style: none;
+    }
+  }
+}
