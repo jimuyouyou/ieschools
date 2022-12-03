@@ -20,8 +20,8 @@ type FulfilledAction = ReturnType<GenericAsyncThunk['fulfilled']>
 export interface MainState {
   counties: Array<County>;
   schools: Array<School>;
-  selectedCounty: String;
-  selectedSchools: Array<String>;
+  selectedCounty: string;
+  selectedSchools: Array<string>;
 }
 
 const initialState: MainState = {
@@ -36,10 +36,10 @@ export const mainSlice = createSlice({
   initialState,
   // The `reducers` field lets us define reducers and generate associated actions
   reducers: {
-    updateCounty: (state, action: PayloadAction<String>) => {
+    updateCounty: (state, action: PayloadAction<string>) => {
       state.selectedCounty = action.payload;
     },
-    updateSchools: (state, action: PayloadAction<Array<String>>) => {
+    updateSchools: (state, action: PayloadAction<Array<string>>) => {
       // state.value -= 1;
       state.selectedSchools = action.payload;
     },
@@ -50,6 +50,7 @@ export const mainSlice = createSlice({
     builder
       .addCase(loadCounties.fulfilled, (state, action) => {
         state.counties = action.payload;
+        state.selectedCounty = state.counties[0].name
       })
       .addCase(loadSchools.fulfilled, (state, action) => {
         state.schools = action.payload;
@@ -62,7 +63,17 @@ export const { updateCounty, updateSchools } = mainSlice.actions;
 export const loadCounties = createAsyncThunk(
   'main/loadCounties',
   async () => {
-    return counties
+    counties.sort((a, b) => {
+      if (a.name > b.name) {
+        return 1;
+      }
+      if (b.name > a.name) {
+        return -1;
+      }
+      return 0;
+    });
+
+    return counties;
   }
 );
 
@@ -75,7 +86,7 @@ export const loadSchools = createAsyncThunk(
 
 export const selectAllSchools = (state: RootState) => state.main.schools;
 export const selectAllCounties = (state: RootState) => state.main.counties;
-export const selectSchoolById = (state: RootState, id: String) => state.main.schools.find(it => it.id === id)
+export const selectSchoolById = (state: RootState, id: string) => state.main.schools.find(it => it.id === id)
 
 
 export default mainSlice.reducer;

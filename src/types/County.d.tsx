@@ -1,3 +1,3 @@
 export interface County {
-  name: String;
+  name: string;
 }

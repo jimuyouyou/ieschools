@@ -21,6 +21,10 @@ body {
 
     .dropdown-item {
       list-style: none;
+
+      &.selected {
+        background-color: blue;
+      }
     }
   }
 }

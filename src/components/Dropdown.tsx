@@ -1,16 +1,19 @@
 import React, { useState, ChangeEvent } from 'react';
 import PropTypes from 'prop-types';
 import { iteratorSymbol } from 'immer/dist/internal';
+import classNames from 'classnames';
 
 const propTypes = {
+  value: PropTypes.string,
   items: PropTypes.array,
   searchable: PropTypes.bool,
+  onChange: PropTypes.func,
 };
 
 type DropdownProps = PropTypes.InferProps<typeof propTypes>;
 
 export function Dropdown(props: DropdownProps) {
-  const { items } = props;
+  const { items, value, onChange } = props;
   const [searchText, setSearchText] = useState('');
   const [hide, setHide] = useState(true);
 
@@ -19,12 +22,17 @@ export function Dropdown(props: DropdownProps) {
     setHide(false)
   };
 
-  const handleBlur = () => {
-    setHide(true)
-  }
+  // const handleBlur = () => {
+  //   setHide(true)
+  // }
 
   const handleClick = () => {
     setHide(false)
+  }
+
+  const handleItemClick = (value: string) => {
+    if (onChange) onChange(value);
+    setHide(true)
   }
 
   const availableItems = hide ? [] : items?.filter(it => it.toLocaleLowerCase().includes(searchText.toLocaleLowerCase()));
@@ -33,15 +41,20 @@ export function Dropdown(props: DropdownProps) {
     <div className="dropdown-wrapper">
       <input className='dropdown-search-input'
         type="text" placeholder='Search'
-        value={searchText}
-        onChange={handleSearch}
-        onBlur={handleBlur}
+        readOnly
+        value={value || ''}
+        // onChange={handleSearch}
+        // onBlur={handleBlur}
         onClick={handleClick}
       /><span className='arrow-down' onClick={handleClick}></span>
       <ul className='dropdown-items'>
         {!hide && availableItems && availableItems.map((item, itemIndex) => {
+          const liClass = classNames({
+            'dropdown-item': true,
+            'selected': value === item,
+          });
           return (
-            <li key={itemIndex} className='dropdown-item'>
+            <li key={itemIndex} className={liClass} onClick={() => handleItemClick(item)}>
               {item}
             </li>
           )

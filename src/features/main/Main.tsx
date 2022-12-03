@@ -13,6 +13,7 @@ import {
 export function Main() {
   const counties = useAppSelector(state => state.main.counties);
   const schools = useAppSelector(state => state.main.schools);
+  const selectedCounty = useAppSelector(state => state.main.selectedCounty);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -20,10 +21,17 @@ export function Main() {
     if (schools.length === 0) dispatch(loadSchools())
   });
 
-  const cc = counties.map(c => c.name)
+  const handleOnCountyChange = (selectedCounty: string) => {
+    console.log('2')
+    dispatch(updateCounty(selectedCounty))
+  }
+
+  const cts = counties.map(c => c.name)
+  // const
+
   return (
     <div>
-      <Dropdown items={cc} />
+      <Dropdown items={cts} onChange={handleOnCountyChange} value={selectedCounty} />
       <button onClick={() => dispatch(updateCounty('hoho'))}>Click Me</button>
     </div>
   )
