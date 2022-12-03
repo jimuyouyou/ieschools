@@ -5,8 +5,6 @@ import {
   Route,
   Navigate
 } from 'react-router-dom';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
 import { Main } from './features/main/Main';
 import './App.css';
 

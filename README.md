@@ -1,9 +1,11 @@
 # A demo project based following technologies
 - [React](https://reactjs.org/)
+- [React-Router](https://reactrouter.com/en/main) 
 - [Redux](https://redux.js.org/) 
 - [Redux Toolkit](https://redux-toolkit.js.org/)
 - [TypeScript](https://www.typescriptlang.org/docs/handbook/2/basic-types.html)
 - [Sass](https://sass-lang.com/)
+  
 
 # Features
 - Select one county in a searchable dropdownlist
@@ -16,3 +18,6 @@
 
 # Static server deployment
 - [Deployment](https://create-react-app.dev/docs/deployment/)
+
+# Other refs
+- [material ui](https://github.com/mui/material-ui/tree/master/packages/mui-material/src)
