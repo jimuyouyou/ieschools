@@ -10,3 +10,9 @@
 - Select multiple schools of same county
 - Sortable Table show of detailed information of selected schools
 - Click school name to get Pie chart, bar chart and detailed information of that school
+
+# Quick start
+- npm install && npm start
+
+# Static server deployment
+- [Deployment](https://create-react-app.dev/docs/deployment/)
