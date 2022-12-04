@@ -1,4 +1,4 @@
-import React, { useState, ChangeEvent } from 'react';
+import React, { useState, ChangeEvent, MouseEvent } from 'react';
 import PropTypes from 'prop-types';
 import { iteratorSymbol } from 'immer/dist/internal';
 import classNames from 'classnames';
@@ -22,15 +22,15 @@ export function Dropdown(props: DropdownProps) {
     setHide(false)
   };
 
-  // const handleBlur = () => {
-  //   setHide(true)
-  // }
+  const handleBlur = (event: ChangeEvent<HTMLInputElement>) => {
+    setHide(true)
+  }
 
   const handleClick = () => {
     setHide(false)
   }
 
-  const handleItemClick = (value: string) => {
+  const handleItemClick = (event: MouseEvent, value: string) => {
     if (onChange) onChange(value);
     setHide(true)
   }
@@ -38,13 +38,13 @@ export function Dropdown(props: DropdownProps) {
   const availableItems = hide ? [] : items?.filter(it => it.toLocaleLowerCase().includes(searchText.toLocaleLowerCase()));
 
   return (
-    <div className="dropdown-wrapper">
+    <div className="dropdown-wrapper" >
       <input className='dropdown-search-input'
         type="text" placeholder='Search'
         readOnly
         value={value || ''}
         // onChange={handleSearch}
-        // onBlur={handleBlur}
+        onBlur={handleBlur}
         onClick={handleClick}
       /><span className='arrow-down' onClick={handleClick}></span>
       <ul className='dropdown-items'>
@@ -54,7 +54,7 @@ export function Dropdown(props: DropdownProps) {
             'selected': value === item,
           });
           return (
-            <li key={itemIndex} className={liClass} onClick={() => handleItemClick(item)}>
+            <li key={itemIndex} className={liClass} onMouseDown={(event) => handleItemClick(event, item)}>
               {item}
             </li>
           )

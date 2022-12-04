@@ -22,7 +22,6 @@ export function Main() {
   });
 
   const handleOnCountyChange = (selectedCounty: string) => {
-    console.log('2')
     dispatch(updateCounty(selectedCounty))
   }
 
