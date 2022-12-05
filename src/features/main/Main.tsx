@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 import { Dropdown } from '../../components/Dropdown';
 import { ListBox } from '../../components/ListBox';
 import { useAppSelector, useAppDispatch } from '../../app/hooks';
@@ -12,12 +14,14 @@ import {
   selectSchoolByCounty,
 } from './mainSlice';
 
+
 export function Main() {
   const counties = useAppSelector(state => state.main.counties);
   const selectedCounty = useAppSelector(state => state.main.selectedCounty);
   const schools = useAppSelector(state => state.main.schools.filter(it => it['County Description'] === selectedCounty));
   const selectedSchools = useAppSelector(state => state.main.selectedSchools);
 
+  const navigate = useNavigate();
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -33,13 +37,17 @@ export function Main() {
     dispatch(updateSchools(updatedSchools))
   }
 
+  const handleGetReport = () => {
+    navigate(`/tabular?county=${selectedCounty}&school=${selectedSchools.join(',')}`);
+  }
+
   const cts = counties.map(c => c.name)
 
   return (
     <div>
       <Dropdown items={cts} onChange={handleOnCountyChange} value={selectedCounty} />
       <ListBox items={schools} onChange={handleOnSchoolChange} value={selectedSchools} />
-      <button onClick={() => dispatch(updateCounty('hoho'))}>Generate Report</button>
+      <button onClick={handleGetReport}>Generate Report</button>
     </div>
   )
 }

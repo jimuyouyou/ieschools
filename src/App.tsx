@@ -6,6 +6,11 @@ import {
   Navigate
 } from 'react-router-dom';
 import { Main } from './features/main/Main';
+import { TabularReport } from './features/tabular/TabularReport';
+import { BarChart } from './components/BarChart';
+import { PieChart } from './components/PieChart';
+import { IndividualReport } from './features/individual/IndividualReport';
+
 import './App.css';
 
 function App() {
@@ -13,6 +18,10 @@ function App() {
     <Router>
       <Routes>
         <Route path="/home" element={<Main />} />
+        <Route path="/tabular" element={<TabularReport />} />
+        <Route path="/barchart" element={<BarChart />} />
+        <Route path="/piechart" element={<PieChart />} />
+        <Route path="/individual" element={<IndividualReport />} />
         <Route path="/" element={<Navigate replace to="/home" />} />
       </Routes>
     </Router>
