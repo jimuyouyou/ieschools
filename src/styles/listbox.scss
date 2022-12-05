@@ -1,0 +1,18 @@
+.list-box-wrapper {
+  width: fit-content;
+
+  .listbox-items {
+    max-height: 400px;
+    overflow-y: auto;
+
+
+    .listbox-item {
+      list-style: none;
+      cursor    : pointer;
+
+      &.selected {
+        background-color: $blue;
+      }
+    }
+  }
+}

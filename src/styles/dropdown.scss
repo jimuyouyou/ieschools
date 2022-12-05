@@ -1,0 +1,31 @@
+.dropdown-wrapper {
+  width: fit-content;
+
+  .arrow-down {
+    display     : inline-block;
+    width       : 0;
+    height      : 0;
+    border-left : 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top  : 20px solid $light-blue;
+    position    : relative;
+    right       : 20px;
+    top         : 5px;
+    cursor      : pointer;
+  }
+
+  .dropdown-items {
+    max-height: 400px;
+    overflow-y: auto;
+
+
+    .dropdown-item {
+      list-style: none;
+      cursor    : pointer;
+
+      &.selected {
+        background-color: $blue;
+      }
+    }
+  }
+}

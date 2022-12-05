@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Dropdown } from '../../components/Dropdown';
+import { ListBox } from '../../components/ListBox';
 import { useAppSelector, useAppDispatch } from '../../app/hooks';
 import {
   loadCounties,
@@ -8,12 +9,15 @@ import {
   updateSchools,
   selectAllCounties,
   selectAllSchools,
+  selectSchoolByCounty,
 } from './mainSlice';
 
 export function Main() {
   const counties = useAppSelector(state => state.main.counties);
-  const schools = useAppSelector(state => state.main.schools);
   const selectedCounty = useAppSelector(state => state.main.selectedCounty);
+  const schools = useAppSelector(state => state.main.schools.filter(it => it['County Description'] === selectedCounty));
+  const selectedSchools = useAppSelector(state => state.main.selectedSchools);
+
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -21,17 +25,21 @@ export function Main() {
     if (schools.length === 0) dispatch(loadSchools())
   });
 
-  const handleOnCountyChange = (selectedCounty: string) => {
-    dispatch(updateCounty(selectedCounty))
+  const handleOnCountyChange = (updatedCounty: string) => {
+    dispatch(updateCounty(updatedCounty))
+  }
+
+  const handleOnSchoolChange = (updatedSchools: Array<string>) => {
+    dispatch(updateSchools(updatedSchools))
   }
 
   const cts = counties.map(c => c.name)
-  // const
 
   return (
     <div>
       <Dropdown items={cts} onChange={handleOnCountyChange} value={selectedCounty} />
-      <button onClick={() => dispatch(updateCounty('hoho'))}>Click Me</button>
+      <ListBox items={schools} onChange={handleOnSchoolChange} value={selectedSchools} />
+      <button onClick={() => dispatch(updateCounty('hoho'))}>Generate Report</button>
     </div>
   )
 }

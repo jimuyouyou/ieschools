@@ -87,6 +87,6 @@ export const loadSchools = createAsyncThunk(
 export const selectAllSchools = (state: RootState) => state.main.schools;
 export const selectAllCounties = (state: RootState) => state.main.counties;
 export const selectSchoolById = (state: RootState, id: string) => state.main.schools.find(it => it.id === id)
-
+export const selectSchoolByCounty = (state: RootState, id: string) => state.main.schools.filter(it => it['County Description'] === id)
 
 export default mainSlice.reducer;

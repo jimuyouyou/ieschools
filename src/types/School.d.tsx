@@ -2,6 +2,7 @@ export interface School {
   'id': string;
   'Roll Number': string;
   'Official Name': string;
+  'desc': string;
   'County Description': string;
   'Local Authority Description': string;
   'DEIS (Y/N)': string;

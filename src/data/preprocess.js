@@ -40,6 +40,8 @@ schools.forEach(sc => {
     if (sc[p] == undefined) sc[p] = 0
   });
 
+  sc['desc'] = sc['Official Name'];
+
 })
 fs.writeFileSync(path.resolve('./schools.json'), JSON.stringify(schools));
 
