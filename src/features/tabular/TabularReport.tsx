@@ -27,9 +27,13 @@ export function TabularReport() {
     if (schools.length === 0) dispatch(loadSchools())
   });
 
+  const handleOnLink = (params: string) => {
+
+  };
+
   return (
     <div className='tabular-wrapper'>
-      <TableChart headers={headers} rows={rows} />
+      <TableChart headers={headers} rows={rows} onChange={handleOnLink} />
     </div>
   )
 }

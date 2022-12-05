@@ -13,12 +13,13 @@ export interface CellType {
 const propTypes = {
   headers: PropTypes.array,
   rows: PropTypes.array, // id, desc, linkTo
+  onChange: PropTypes.func,
 };
 
 type TableChartProps = PropTypes.InferProps<typeof propTypes>;
 
 export function TableChart(props: TableChartProps) {
-  const { headers, rows } = props;
+  const { headers, rows, onChange } = props;
 
   return (
     <div className='table-chart-wrapper'>
@@ -42,7 +43,7 @@ export function TableChart(props: TableChartProps) {
               <tr key={rowIndex}>
                 {row.map((cell: CellType) => {
                   return (
-                    <td key={cell.id}>
+                    <td key={cell.id} onClick={() => { onChange && onChange(cell.linkTo) }}>
                       {cell.linkTo ? <Link to={cell.linkTo}>{cell.desc}</Link> : cell.desc}
                     </td>
                   )

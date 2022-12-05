@@ -5,9 +5,9 @@ import { CellType } from "../components/TableChart"
 const getLinkTo = (colName: string, school: School) => {
   const county = school['County Description']
   const schoolId = school['id']
-  if ('Official Name' === colName) return `/individual?count=${county}&school=${schoolId}`;
-  else if ('Bar Chart' === colName) return `/barchart?count=${county}&school=${schoolId}`;
-  else if ('Pie Chart' === colName) return `/piechart?count=${county}&school=${schoolId}`;
+  if ('Official Name' === colName) return `/individual?county=${county}&school=${schoolId}`;
+  else if ('Bar Chart' === colName) return `/barchart?county=${county}&school=${schoolId}`;
+  else if ('Pie Chart' === colName) return `/piechart?county=${county}&school=${schoolId}`;
   return ''
 };
 
