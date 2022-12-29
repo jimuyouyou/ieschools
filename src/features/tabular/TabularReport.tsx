@@ -16,7 +16,8 @@ import {
 export function TabularReport() {
   const counties = useAppSelector(state => state.main.counties);
   const selectedCounty = useAppSelector(state => state.main.selectedCounty);
-  const schools = useAppSelector(state => state.main.schools.filter(it => it['County Description'] === selectedCounty));
+  // const schools = useAppSelector(state => state.main.schools.filter(it => it['County Description'] === selectedCounty));
+  const schools = useAppSelector(state => state.main.schools.filter(it => state.main.selectedSchools.includes(it['id'])));
 
   const navigate = useNavigate();
   const dispatch = useAppDispatch();

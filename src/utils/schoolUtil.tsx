@@ -2,6 +2,19 @@ import camelCase from 'camelcase';
 import { School } from "../types/School.d"
 import { CellType } from "../components/TableChart"
 
+const showTableColumns = [
+  'Official Name',
+  'Junior Infants',
+  'Senior Infants',
+  'First Class',
+  'Second Class',
+  'Third Class',
+  'Fourth Class',
+  'Fifth Class',
+  'Sixth Class',
+  'Total',
+];
+
 const getLinkTo = (colName: string, school: School) => {
   const county = school['County Description']
   const schoolId = school['id']
@@ -19,7 +32,9 @@ export const formatTabularSchoolData = (schools: Array<School>) => {
     const cellsTypes = new Array<CellType>();
     const school = schools[0];
     Object.keys(school).forEach(key => {
-      cellsTypes.push({ id: camelCase(key), desc: key })
+      if (showTableColumns.includes(key)) {
+        cellsTypes.push({ id: camelCase(key), desc: key })
+      }
     });
     cellsTypes.push({ id: camelCase('Bar Chart'), desc: 'Bar Chart' });
     cellsTypes.push({ id: camelCase('Pie Chart'), desc: 'Pie Chart' });

@@ -4,6 +4,11 @@ import { useNavigate } from 'react-router-dom';
 import { Dropdown } from '../../components/Dropdown';
 import { ListBox } from '../../components/ListBox';
 import { useAppSelector, useAppDispatch } from '../../app/hooks';
+import { TabularReport } from '../../features/tabular/TabularReport';
+import { BarChart } from '../../components/BarChart';
+import { PieChart } from '../../components/PieChart';
+import { IndividualReport } from '../../features/individual/IndividualReport';
+
 import {
   loadCounties,
   loadSchools,
@@ -44,10 +49,24 @@ export function Main() {
   const cts = counties.map(c => c.name)
 
   return (
-    <div>
-      <Dropdown items={cts} onChange={handleOnCountyChange} value={selectedCounty} />
-      <ListBox items={schools} onChange={handleOnSchoolChange} value={selectedSchools} />
-      <button onClick={handleGetReport}>Generate Report</button>
+    <div className='main-wrapper'>
+      <div className='main-selection-wrapper'>
+        <Dropdown items={cts} onChange={handleOnCountyChange} value={selectedCounty} />
+        <ListBox items={schools} onChange={handleOnSchoolChange} value={selectedSchools} />
+        {/* <button onClick={handleGetReport}>Generate Report</button> */}
+      </div>
+      <div className='main-report-wrapper'>
+        <div>
+          <div>table</div>
+          <div>bar</div>
+          <div>pie</div>
+          <div>individual</div>
+        </div>
+        <TabularReport />
+        {/* <BarChart />
+        <PieChart />
+        <IndividualReport /> */}
+      </div>
     </div>
   )
 }

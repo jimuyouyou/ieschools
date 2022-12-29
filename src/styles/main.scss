@@ -1,3 +1,13 @@
-@import './base.scss';
-@import './dropdown.scss';
-@import './listbox.scss';
+.main-wrapper {
+  display: flex;
+  flex-direction: row;
+
+  .main-selection-wrapper {
+    flex-grow: 1;
+    background: $green;
+  }
+  .main-report-wrapper {
+    flex-grow: 10;
+    background-color: $light-yellow;
+  }
+}
