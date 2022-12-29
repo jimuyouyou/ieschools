@@ -6,37 +6,43 @@ import * as d3 from "d3";
 
 
 export function PieChart(props) {
+  const { data,id } = props;
+
   const ref = useRef()
-  const width = 500;
+  const width = 700;
   const height = 500;
   const margin = 50;
+  const leftPadding = 0;
 
   // The radius of the pieplot is half the width or half the height (smallest one). I subtract a bit of margin.
   const radius = Math.min(width, height) / 2 - margin
 
   // create 2 data_set
-  const data = { a: 9, b: 20, c: 30, d: 8, e: 12, f: 3, g: 7, h: 14 }
+  // const data = { a: 9, b: 20, c: 30, d: 8, e: 12, f: 3, g: 7, h: 14 }
 
   // set the color scale
   const color = d3.scaleOrdinal()
-    .domain(["a", "b", "c", "d", "e", "f"])
+    .domain(Object.keys(data))
     .range(d3.schemeDark2);
 
   // A function that create / update the plot for a given variable:
   function update(data) {
-    if (document.querySelector('#mysvg')) return;
+    const mysvg = document.querySelector(`#mysvg`);
+    if (mysvg && mysvg.getAttribute('data-id') === id) return;
+    else if (mysvg && mysvg.getAttribute('data-id') !== id) mysvg.remove();
 
     const svg = d3.select(ref.current)
       .append("svg")
-      .attr("id", 'mysvg')
+      .attr("id", `mysvg`)
+      .attr("data-id", id)
       .attr("width", width)
       .attr("height", height)
       .append("g")
-      .attr("transform", `translate(${width / 2},${height / 2})`);
+      .attr("transform", `translate(${width / 2 + leftPadding},${height / 2})`);
 
     // set the color scale
     const color = d3.scaleOrdinal()
-      .domain(["a", "b", "c", "d", "e", "f", "g", "h"])
+      .domain(Object.keys(data))
       .range(d3.schemeDark2);
 
     // Compute the position of each group on the pie:
@@ -88,7 +94,7 @@ export function PieChart(props) {
       .selectAll('allLabels')
       .data(data_ready)
       .join('text')
-      .text(d => d.data[0])
+      .text(d => `${d.data[0]} - ${d.data[1]}`)
       .attr('transform', function (d) {
         const pos = outerArc.centroid(d);
         const midangle = d.startAngle + (d.endAngle - d.startAngle) / 2
@@ -104,7 +110,7 @@ export function PieChart(props) {
 
   useEffect(() => {
     update(data)
-  }, [])
+  }, [id])
 
   return (
     <div

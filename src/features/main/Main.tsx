@@ -6,7 +6,7 @@ import { ListBox } from '../../components/ListBox';
 import { useAppSelector, useAppDispatch } from '../../app/hooks';
 import { TabularReport } from '../../features/tabular/TabularReport';
 import { BarChartReport } from '../../features/barchart/BarChartReport';
-import { PieChartReport } from '../../features/piechart/PieChartReport';
+import { D3ChartReport } from '../d3chart/D3ChartReport';
 import { IndividualReport } from '../../features/individual/IndividualReport';
 
 import {
@@ -68,7 +68,7 @@ export function Main() {
           <span className='icon-table report-icon' onClick={() => handleChangeReport(4)}>&nbsp;</span>
         </div>
         {reportType == 1 && <BarChartReport />}
-        {reportType == 2 && <PieChartReport />}
+        {reportType == 2 && <D3ChartReport />}
         {reportType == 3 && <IndividualReport />}
         {reportType == 4 && <TabularReport />}
       </div>
