@@ -15,13 +15,14 @@ import {
 } from '../main/mainSlice';
 
 export function IndividualReport() {
-  const params = useSearchParams();
-  const { query } = parseUrl(window.location.href);
-
+  // const params = useSearchParams();
+  // const { query } = parseUrl(window.location.href);
+  const [rowInd, setRowInd] = useState(0)
   const counties = useAppSelector(state => state.main.counties);
-  const selectedCounty = useAppSelector(state => state.main.counties.find(c => c.name === query.county));
-  const schools = useAppSelector(state => state.main.schools);
-  const school = useAppSelector(state => state.main.schools.find(s => s.id === query.school));
+  // const selectedCounty = useAppSelector(state => state.main.counties.find(c => c.name === query.county));
+  // const schools = useAppSelector(state => state.main.schools);
+  const schools = useAppSelector(state => state.main.schools.filter(it => state.main.selectedSchools.includes(it['id'])));
+  const school = schools[rowInd];
 
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
@@ -31,6 +32,14 @@ export function IndividualReport() {
     if (counties.length === 0) dispatch(loadCounties())
     if (schools.length === 0) dispatch(loadSchools())
   });
+
+  const handlePrev = () => {
+    if (rowInd >= 1) setRowInd(rowInd - 1);
+  };
+
+  const handleNext = () => {
+    if (rowInd + 1 < (rows?.length || 0)) setRowInd(rowInd + 1);
+  };
 
   console.log(school);
   return (
@@ -117,6 +126,11 @@ export function IndividualReport() {
           </div>
         </div>
       }
+      <div className='ind-footer'>
+        <button className='preButton' onClick={handlePrev} >Prev</button>
+        <span>{rowInd + 1} of {rows?.length}</span>
+        <button className='nextButton' onClick={handleNext}>Next</button>
+      </div>
     </div>
   )
 }

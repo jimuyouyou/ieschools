@@ -43,7 +43,8 @@ export function TableChart(props: TableChartProps) {
                 {row.map((cell: CellType) => {
                   return (
                     <td key={cell.id} onClick={() => { onChange && onChange(cell.linkTo) }}>
-                      {cell.linkTo ? <Link to={cell.linkTo}>{cell.desc}</Link> : cell.desc}
+                      {/* {cell.linkTo ? <Link to={cell.linkTo}>{cell.desc}</Link> : cell.desc} */}
+                      {cell.linkTo ? <a >{cell.desc}</a> : cell.desc}
                     </td>
                   )
                 })}

@@ -62,15 +62,15 @@ export function Main() {
       </div>
       <div className='main-report-wrapper'>
         <div className='icons-wrapper'>
-          <span className='icon-table report-icon' onClick={() => handleChangeReport(1)}>&nbsp;</span>
-          <span className='icon-stats-bars report-icon' onClick={() => handleChangeReport(2)}>&nbsp;</span>
-          <span className='icon-pie-chart report-icon' onClick={() => handleChangeReport(3)} >&nbsp;</span>
-          <span className='icon-file-word report-icon' onClick={() => handleChangeReport(4)}>&nbsp;</span>
+          <span className='icon-stats-bars report-icon' onClick={() => handleChangeReport(1)}>&nbsp;</span>
+          <span className='icon-pie-chart report-icon' onClick={() => handleChangeReport(2)} >&nbsp;</span>
+          <span className='icon-file-word report-icon' onClick={() => handleChangeReport(3)}>&nbsp;</span>
+          <span className='icon-table report-icon' onClick={() => handleChangeReport(4)}>&nbsp;</span>
         </div>
-        {reportType == 1 && <TabularReport />}
-        {reportType == 2 && <BarChartReport />}
-        {reportType == 3 && <PieChartReport />}
-        {reportType == 4 && <IndividualReport />}
+        {reportType == 1 && <BarChartReport />}
+        {reportType == 2 && <PieChartReport />}
+        {reportType == 3 && <IndividualReport />}
+        {reportType == 4 && <TabularReport />}
       </div>
     </div >
   )
