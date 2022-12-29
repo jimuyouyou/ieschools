@@ -36,8 +36,12 @@ const colors = [
 ];
 
 const getMaxBarVal = (cells: []) => {
-  let max = Math.max(...cells);
-  return Math.round((max + 5) / 10) * 10
+  if (cells?.length > 0) {
+    let max = Math.max(...cells);
+    return Math.round((max + 5) / 10) * 10
+  }
+
+  return 100;
 }
 
 export function BarChart(props: BarChartProps) {
@@ -45,13 +49,13 @@ export function BarChart(props: BarChartProps) {
   const [rowInd, setRowInd] = useState(0)
 
   const row = rows ? rows[rowInd] : []
-  const cells = row.filter((r: CellType) => typeof r.desc !== 'string' && !['total', 'd'].includes(r.id));
-  const cellValues = cells.map((cell: CellType) => cell.desc);
+  const cells = row?.filter((r: CellType) => typeof r.desc !== 'string' && !['total', 'd'].includes(r.id));
+  const cellValues = cells?.map((cell: CellType) => cell.desc);
   console.log('cells', cells);
   // const totalCell = row.find((r: CellType) => 'total' === r.id);
   const total: number = getMaxBarVal(cellValues);
   const generalHeader = headers?.find((header) => header.id === 'officialName');
-  const generalHeaderCell = row.find((r: CellType) => 'officialName' === r.id);
+  const generalHeaderCell = row?.find((r: CellType) => 'officialName' === r.id);
 
   const handlePrev = () => {
     if (rowInd >= 1) setRowInd(rowInd - 1);
