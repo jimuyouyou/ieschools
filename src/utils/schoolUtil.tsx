@@ -36,8 +36,8 @@ export const formatTabularSchoolData = (schools: Array<School>) => {
         cellsTypes.push({ id: camelCase(key), desc: key })
       }
     });
-    cellsTypes.push({ id: camelCase('Bar Chart'), desc: 'Bar Chart' });
-    cellsTypes.push({ id: camelCase('Pie Chart'), desc: 'Pie Chart' });
+    // cellsTypes.push({ id: camelCase('Bar Chart'), desc: 'Bar Chart' });
+    // cellsTypes.push({ id: camelCase('Pie Chart'), desc: 'Pie Chart' });
 
 
     headers = cellsTypes;
@@ -58,4 +58,8 @@ export const formatTabularSchoolData = (schools: Array<School>) => {
   }
 
   return { headers, rows }
+}
+
+export const formatChartSchoolData = (schools: Array<School>) => {
+  return formatTabularSchoolData(schools)
 }

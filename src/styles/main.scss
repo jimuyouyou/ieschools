@@ -1,13 +1,24 @@
 .main-wrapper {
-  display: flex;
+  display       : flex;
   flex-direction: row;
 
   .main-selection-wrapper {
-    flex-grow: 1;
+    flex-grow : 1;
     background: $green;
   }
+
   .main-report-wrapper {
-    flex-grow: 10;
+    flex-grow       : 10;
     background-color: $light-yellow;
+
+    .icons-wrapper {
+      float: right;
+
+      .report-icon {
+        cursor   : pointer;
+        font-size: large;
+      }
+    }
   }
+
 }

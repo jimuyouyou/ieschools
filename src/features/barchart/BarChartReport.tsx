@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAppSelector, useAppDispatch } from '../../app/hooks';
 import { BarChart } from '../../components/BarChart';
-import { formatTabularSchoolData } from '../../utils/schoolUtil';
+import { formatChartSchoolData } from '../../utils/schoolUtil';
 import {
   loadCounties,
   loadSchools,
@@ -16,11 +16,12 @@ import {
 export function BarChartReport() {
   const counties = useAppSelector(state => state.main.counties);
   const selectedCounty = useAppSelector(state => state.main.selectedCounty);
-  const schools = useAppSelector(state => state.main.schools.filter(it => it['County Description'] === selectedCounty));
+  const schools = useAppSelector(state => state.main.schools.filter(it => state.main.selectedSchools.includes(it['id'])));
 
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
-  const { headers, rows } = formatTabularSchoolData(schools);
+  const { headers, rows } = formatChartSchoolData(schools);
+  console.log('BarChartReport', { schools, headers, rows })
 
   useEffect(() => {
     if (counties.length === 0) dispatch(loadCounties())

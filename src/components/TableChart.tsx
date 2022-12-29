@@ -23,7 +23,6 @@ export function TableChart(props: TableChartProps) {
 
   return (
     <div className='table-chart-wrapper'>
-      table-chart
       <table>
         <thead>
           <tr>
