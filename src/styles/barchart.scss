@@ -1,13 +1,27 @@
 .bar-chart-wrapper {
-  .bar-wrapper {
-    margin: 20px;
-    
-    .bar-bar {
+  .bar-general-label {
+    margin-left: 20px;
+    margin-bottom: 30px;
 
+    .label-name {
+      display: inline-block;
+      margin-right: 10px;
     }
 
-    .bar-label {
+    .label-val {
+      display: inline-block;
+    }
+  }
 
+  .bar-bars-wrapper {
+    margin-left: 20px;
+
+    .bar-wrapper {
+      margin: 10px 0;
+
+      .bar-bar {}
+
+      .bar-label {}
     }
   }
 }
