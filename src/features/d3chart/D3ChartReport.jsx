@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useInterval } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAppSelector, useAppDispatch } from '../../app/hooks';
 import { PieChart } from '../../components/PieChart';
+import { CircularBarChart } from '../../components/CircularBarChart';
 import { formatTabularSchoolData } from '../../utils/schoolUtil';
 import {
   loadCounties,
@@ -28,6 +29,7 @@ const showChartColumns = [
 
 export function D3ChartReport() {
   const [rowInd, setRowInd] = useState(0)
+  const [chartInd, setChartInd] = useState(0)
   const counties = useAppSelector(state => state.main.counties);
   const selectedCounty = useAppSelector(state => state.main.selectedCounty);
   const schools = useAppSelector(state => state.main.schools.filter(it => state.main.selectedSchools.includes(it['id'])));
@@ -39,7 +41,7 @@ export function D3ChartReport() {
     .forEach((key) => {
       data[key] = school[key]
     });
-  console.log('data', data);
+  // console.log('data', data);
 
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
@@ -56,7 +58,12 @@ export function D3ChartReport() {
   useEffect(() => {
     if (counties.length === 0) dispatch(loadCounties())
     if (schools.length === 0) dispatch(loadSchools())
+
+    setTimeout(() => {
+      setChartInd((chartInd + 1) % 2);
+    }, 5000);
   });
+
 
   return (
     <div className='d3-chart-wrapper'>
@@ -64,7 +71,8 @@ export function D3ChartReport() {
         <div className='label-title'>Official Name: &nbsp;</div>
         <div className='label-value'>{school?.desc}</div>
       </div>
-      <PieChart data={data} id={school?.id}/>
+      {chartInd === 0 && <PieChart data={data} id={school?.id} />}
+      {chartInd === 1 && <CircularBarChart data={data} id={school?.id} />}
       <div className='d3-footer'>
         <button className='preButton' onClick={handlePrev} >Prev</button>
         <span>{rowInd + 1} of {rows?.length}</span>

@@ -6,7 +6,7 @@ import * as d3 from "d3";
 
 
 export function PieChart(props) {
-  const { data,id } = props;
+  const { data, id } = props;
 
   const ref = useRef()
   const width = 700;
