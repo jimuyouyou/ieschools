@@ -28,7 +28,7 @@ const initialState: MainState = {
   counties: [],
   schools: [],
   selectedCounty: '',
-  selectedSchools: [],
+  selectedSchools: ['00651R', '01415K', '13507I', '11135K'],
 };
 
 export const mainSlice = createSlice({

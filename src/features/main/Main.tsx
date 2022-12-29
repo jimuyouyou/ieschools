@@ -40,7 +40,10 @@ export function Main() {
   }
 
   const handleOnSchoolChange = (updatedSchools: Array<string>) => {
-    dispatch(updateSchools(updatedSchools))
+    // console.log('updatedSchools', updatedSchools)
+    if (updatedSchools.length > 0) {
+      dispatch(updateSchools(updatedSchools))
+    }
   }
 
   const handleGetReport = () => {
