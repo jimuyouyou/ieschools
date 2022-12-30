@@ -48,13 +48,21 @@ export function CircularBarChart(props) {
       .domain([0, Math.max(...Object.values(data)) * 5]); // Domain of Y is from 0 to the max seen in the data
 
     // Add the bars
+    const arc0 = d3.arc()     // imagine your doing a part of a donut plot
+      .innerRadius(Math.random() / 10)
+      .outerRadius(d => Math.random() + 0.5)
+      .startAngle(d => x(d[0]))
+      .endAngle(d => x(d[0]) + x.bandwidth())
+      .padAngle(0.01)
+      .padRadius(innerRadius);
+
     svg.append("g")
       .selectAll("path")
       .data(data_ready)
       .join("path")
       // .attr("fill", "#69b3a2")
       .attr('fill', d => color(d[1]))
-      .attr("d", [[0, 0], [Math.random(), Math.random()]])
+      .attr("d", arc0)
       .transition()
       .duration(transitionTime)
       .attr("d", d3.arc()     // imagine your doing a part of a donut plot

@@ -57,20 +57,26 @@ export function PieChart(props) {
       .innerRadius(radius * 0.5)         // This is the size of the donut hole
       .outerRadius(radius * 0.8)
 
+    const arc0 = d3.arc()
+      .innerRadius(Math.random() / 10)
+      .outerRadius(d => Math.random() + 0.5)
+      // .startAngle(d => Math.random())
+      // .endAngle(d => Math.random())
+      // .padAngle(0.01)
+      // .padRadius(innerRadius);
+
     // Another arc that won't be drawn. Just for labels positioning
     const outerArc = d3.arc()
       .innerRadius(radius * 0.9)
       .outerRadius(radius * 0.9)
 
     // Build the pie chart: Basically, each part of the pie is a path that we build using the arc function.
-    // try {
-
     svg
       .selectAll('allSlices')
       .data(data_ready)
       .join('path')
-      .attr('d', [[0, 0], [Math.random(), Math.random()]])
-      // .attr('d', [0, 0])
+      .attr('d', arc0)
+      // .attr('d', initLine)
       // .attr('d', d3.line().curve(d3.curveCatmullRom.alpha(0.5)))
       .transition()
       .duration(transitionTime)
@@ -80,7 +86,7 @@ export function PieChart(props) {
       .style("stroke-width", "2px")
       // .style("opacity", 0)
       .style("opacity", 0.7)
-    // } catch (e) { }
+
 
     // Add the polylines between chart and labels:
     svg
