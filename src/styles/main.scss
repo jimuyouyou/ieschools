@@ -26,9 +26,9 @@
     margin-left     : 2px;
 
     .icons-wrapper {
-      float     : right;
-      margin-top: 15px;
-      color     : $blue;
+      float       : right;
+      margin-top  : 15px;
+      color       : $blue;
       margin-right: 200px;
 
       @media screen and (min-width: 1024px) {
@@ -108,5 +108,14 @@
       transition       : .5s;
       padding          : 5px 40px;
     }
+
+  }
+
+  .project-title {
+    position   : absolute;
+    bottom     : 8px;
+    right      : 20px;
+    color      : $blue;
+    font-family: cursive;
   }
 }

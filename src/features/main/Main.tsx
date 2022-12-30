@@ -89,6 +89,7 @@ export function Main() {
           {/* https://site.mockito.org/ */}
         </span>
       </div>
+      <div className='project-title'>Data Visualization for Primary Schools in Ireland</div>
     </div >
   )
 }
