@@ -70,7 +70,7 @@ export function D3ChartReport() {
   return (
     <div className='d3-chart-wrapper'>
       <div className='label-wrapper'>
-        <div className='label-title'>Official Name: &nbsp;</div>
+        <div className='label-title'>School Name: &nbsp;</div>
         <div className='label-value'>{school?.desc}</div>
       </div>
       {chartInd === 0 && <PieChart data={data} id={school?.id} />}

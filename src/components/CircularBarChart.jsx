@@ -15,7 +15,7 @@ export function CircularBarChart(props) {
     height = 500 - margin.top - margin.bottom,
     innerRadius = 90,
     outerRadius = Math.min(width, height) / 2;   // the outerRadius goes from the middle of the SVG area to the border
-
+  const transitionTime = 3000;
 
   // A function that create / update the plot for a given variable:
   function update(data) {
@@ -34,7 +34,9 @@ export function CircularBarChart(props) {
       .append("g")
       .attr("transform", `translate(${width / 2 + margin.left}, ${height / 2 + margin.top})`);
 
-
+    const color = d3.scaleOrdinal()
+      .domain(Object.keys(data))
+      .range(d3.schemeDark2);
 
     // Scales
     const x = d3.scaleBand()
@@ -50,7 +52,11 @@ export function CircularBarChart(props) {
       .selectAll("path")
       .data(data_ready)
       .join("path")
-      .attr("fill", "#69b3a2")
+      // .attr("fill", "#69b3a2")
+      .attr('fill', d => color(d[1]))
+      .attr("d", [[0, 0], [Math.random(), Math.random()]])
+      .transition()
+      .duration(transitionTime)
       .attr("d", d3.arc()     // imagine your doing a part of a donut plot
         .innerRadius(innerRadius)
         .outerRadius(d => y(d[1]))

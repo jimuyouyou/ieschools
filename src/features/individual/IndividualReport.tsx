@@ -52,7 +52,7 @@ export function IndividualReport() {
               <div className='item-content'>{school['Roll Number']}</div>
             </div>
             <div className='item'>
-              <div className='item-label'>Official Name</div>
+              <div className='item-label'>School Name</div>
               <div className='item-content'>{school['Official Name']}</div>
             </div>
             <div className='item'>

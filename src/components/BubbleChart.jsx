@@ -11,9 +11,9 @@ export function BubbleChart(props) {
   const ref = useRef()
   // set the dimensions and margins of the graph
   const margin = { top: 20, right: 0, bottom: 0, left: 0 },
-    width = 700 - margin.left - margin.right,
-    height = 500 - margin.top - margin.bottom;
-
+    width = 800 - margin.left - margin.right,
+    height = 600 - margin.top - margin.bottom;
+    const transitionTime = 3000;
 
   // A function that create / update the plot for a given variable:
   function update(data) {
@@ -87,6 +87,9 @@ export function BubbleChart(props) {
       .attr("stroke-opacity", strokeOpacity)
       .attr("fill", G ? d => color(G[d.data]) : fill == null ? "none" : fill)
       .attr("fill-opacity", fillOpacity)
+      .attr("r", d => 0.5)
+      .transition()
+      .duration(transitionTime)
       .attr("r", d => d.r || 3);
 
     if (T) leaf.append("title")

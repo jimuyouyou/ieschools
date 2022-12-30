@@ -13,6 +13,7 @@ export function PieChart(props) {
   const height = 500;
   const margin = 50;
   const leftPadding = 0;
+  const transitionTime = 3000;
 
   // The radius of the pieplot is half the width or half the height (smallest one). I subtract a bit of margin.
   const radius = Math.min(width, height) / 2 - margin
@@ -21,9 +22,9 @@ export function PieChart(props) {
   // const data = { a: 9, b: 20, c: 30, d: 8, e: 12, f: 3, g: 7, h: 14 }
 
   // set the color scale
-  const color = d3.scaleOrdinal()
-    .domain(Object.keys(data))
-    .range(d3.schemeDark2);
+  // const color = d3.scaleOrdinal()
+  //   .domain(Object.keys(data))
+  //   .range(d3.schemeDark2);
 
   // A function that create / update the plot for a given variable:
   function update(data) {
@@ -62,22 +63,34 @@ export function PieChart(props) {
       .outerRadius(radius * 0.9)
 
     // Build the pie chart: Basically, each part of the pie is a path that we build using the arc function.
+    // try {
+
     svg
       .selectAll('allSlices')
       .data(data_ready)
       .join('path')
+      .attr('d', [[0, 0], [Math.random(), Math.random()]])
+      // .attr('d', [0, 0])
+      // .attr('d', d3.line().curve(d3.curveCatmullRom.alpha(0.5)))
+      .transition()
+      .duration(transitionTime)
       .attr('d', arc)
       .attr('fill', d => color(d.data[1]))
       .attr("stroke", "white")
       .style("stroke-width", "2px")
+      // .style("opacity", 0)
       .style("opacity", 0.7)
+    // } catch (e) { }
 
     // Add the polylines between chart and labels:
     svg
       .selectAll('allPolylines')
       .data(data_ready)
       .join('polyline')
-      .attr("stroke", "black")
+      .attr("stroke", "white")
+      .transition()
+      .duration(transitionTime)
+      .attr("stroke", '#169b62')
       .style("fill", "none")
       .attr("stroke-width", 1)
       .attr('points', function (d) {
@@ -94,7 +107,13 @@ export function PieChart(props) {
       .selectAll('allLabels')
       .data(data_ready)
       .join('text')
+      .transition()
+      .duration(transitionTime)
       .text(d => `${d.data[0]} - ${d.data[1]}`)
+      .attr("fill", "#fac05f")
+      .transition()
+      // .duration(transitionTime)
+      .attr("fill", 'black')
       .attr('transform', function (d) {
         const pos = outerArc.centroid(d);
         const midangle = d.startAngle + (d.endAngle - d.startAngle) / 2

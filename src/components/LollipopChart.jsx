@@ -11,8 +11,9 @@ export function LollipopChart(props) {
   const ref = useRef()
   // set the dimensions and margins of the graph
   const margin = { top: 30, right: 30, bottom: 70, left: 60 },
-    width = 460 - margin.left - margin.right,
+    width = 660 - margin.left - margin.right,
     height = 400 - margin.top - margin.bottom;
+  const transitionTime = 3000;
 
   // A function that create / update the plot for a given variable:
   function update(data) {
@@ -31,6 +32,10 @@ export function LollipopChart(props) {
       .append("g")
       .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
+    const color = d3.scaleOrdinal()
+      .domain(Object.keys(data))
+      .range(d3.schemeDark2);
+
     // Initialize the X axis
     const x = d3.scaleBand()
       .range([0, width])
@@ -46,11 +51,12 @@ export function LollipopChart(props) {
 
     // X axis
     x.domain(Object.keys(data))
-    xAxis.transition().duration(1000).call(d3.axisBottom(x))
+    xAxis.transition().duration(transitionTime).call(d3.axisBottom(x))
+
 
     // Add Y axis
     y.domain([0, d3.max(Object.values(data))]);
-    yAxis.transition().duration(1000).call(d3.axisLeft(y));
+    yAxis.transition().duration(transitionTime).call(d3.axisLeft(y));
 
     // variable u: map data to existing circle
     const j = svg.selectAll(".myLine")
@@ -60,7 +66,7 @@ export function LollipopChart(props) {
       .join("line")
       .attr("class", "myLine")
       .transition()
-      .duration(1000)
+      .duration(transitionTime)
       .attr("x1", function (d) { return x(d[0]); })
       .attr("x2", function (d) { return x(d[0]); })
       .attr("y1", y(0))
@@ -75,11 +81,12 @@ export function LollipopChart(props) {
     u
       .join("circle")
       .transition()
-      .duration(1000)
+      .duration(transitionTime)
       .attr("cx", function (d) { return x(d[0]); })
       .attr("cy", function (d) { return y(d[1]); })
-      .attr("r", 8)
-      .attr("fill", "#69b3a2");
+      .attr("r", d => d[1]/2)
+      // .attr("fill", "#69b3a2");
+      .attr('fill', d => color(d[1]))
   }
 
   useEffect(() => {
