@@ -1,5 +1,8 @@
 .d3-chart-wrapper {
   .label-wrapper {
+    margin-left: 15px;
+    margin-top : 15px;
+
     .label-title {
       display: inline-block;
     }
@@ -7,5 +10,9 @@
     .label-value {
       display: inline-block;
     }
+  }
+
+  .d3-footer {
+    margin-left: 15px;
   }
 }

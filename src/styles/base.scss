@@ -5,7 +5,9 @@ $yellow    : #f0ac01;
 $dark-blue : #00005c;
 
 $blue         : #0c457d;
+$blue2        : #548cc3;
 $light-blue   : #428bca;
+$lighter-blue : #add0ea;
 $red          : #d9534f;
 $light-gray   : #ffefdb;
 $light-yellow : #ffbe4f;
@@ -13,4 +15,25 @@ $best-yellow  : #fac05f;
 
 body {
   background-color: $white;
+
+
+  /* width */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #888;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: $light-blue;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: $light-blue;
+  }
 }

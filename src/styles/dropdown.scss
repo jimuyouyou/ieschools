@@ -1,5 +1,13 @@
 .dropdown-wrapper {
-  width: fit-content;
+  width: auto;
+
+  .dropdown-search-input {
+    display     : inline-block;
+    width       : 85%;
+    margin      : 2px auto;
+    margin-left : 2px;
+    padding-left: 2px;
+  }
 
   .arrow-down {
     display     : inline-block;
@@ -15,9 +23,12 @@
   }
 
   .dropdown-items {
-    max-height: 400px;
-    overflow-y: auto;
-
+    max-height          : 550px;
+    overflow-y          : auto;
+    padding-inline-start: 6px;
+    background-color    : $lighter-blue;
+    margin-block-end    : 0;
+    margin-block-start  : 0;
 
     .dropdown-item {
       list-style: none;

@@ -1,19 +1,36 @@
 .main-wrapper {
+  margin        : 5px;
   display       : flex;
   flex-direction: row;
 
   .main-selection-wrapper {
-    flex-grow : 1;
-    background: $green;
-    max-width : 250px;
+    flex-grow    : 1;
+    background   : $green;
+    width        : 250px;
+    min-width    : 250px;
+    max-width    : 250px;
+    min-height   : 630px;
+    border-radius: 6px;
+
+    .selection-label {
+      margin-left: 5px;
+      margin-top: 8px;
+    }
   }
 
   .main-report-wrapper {
     flex-grow       : 10;
     background-color: $best-yellow;
+    border-radius   : 6px;
+    margin-left     : 2px;
 
     .icons-wrapper {
-      float: right;
+      float     : right;
+      margin-top: 15px;
+
+      @media screen and (min-width: 1024px) {
+        margin-right: 300px;
+      }
 
       .report-icon {
         cursor   : pointer;

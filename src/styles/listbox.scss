@@ -2,16 +2,20 @@
   width: fit-content;
 
   .listbox-items {
-    max-height: 400px;
-    overflow-y: auto;
-
+    max-height          : 530px;
+    overflow-y          : auto;
+    padding-inline-start: 6px;
+    margin-block-start  : 0;
+    margin-block-end    : 0;
 
     .listbox-item {
-      list-style: none;
-      cursor    : pointer;
+      list-style  : none;
+      cursor      : pointer;
+      margin      : 2px 0;
+      margin-right: 4px;
 
       &.selected {
-        background-color: $blue;
+        background-color: $blue2;
       }
     }
   }

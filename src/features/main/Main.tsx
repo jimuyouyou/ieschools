@@ -59,8 +59,14 @@ export function Main() {
   return (
     <div className='main-wrapper'>
       <div className='main-selection-wrapper'>
-        <Dropdown items={cts} onChange={handleOnCountyChange} value={selectedCounty} />
-        <ListBox items={schools} onChange={handleOnSchoolChange} value={selectedSchools} />
+        <div className='county-wrapper'>
+          <div className='selection-label'>County:</div>
+          <Dropdown items={cts} onChange={handleOnCountyChange} value={selectedCounty} />
+        </div>
+        <div className='school-wrapper'>
+          <div className='selection-label'>School:</div>
+          <ListBox items={schools} onChange={handleOnSchoolChange} value={selectedSchools} />
+        </div>
         {/* <button onClick={handleGetReport}>Generate Report</button> */}
       </div>
       <div className='main-report-wrapper'>
