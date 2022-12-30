@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/ieschools/static/css/main.8f61e9a7.css",
+    "main.js": "/ieschools/static/js/main.8c889e15.js",
+    "static/js/787.28cb0dcd.chunk.js": "/ieschools/static/js/787.28cb0dcd.chunk.js",
+    "static/media/icomoon.svg?gwnvke": "/ieschools/static/media/icomoon.b7da538a6a7703a990f8.svg",
+    "static/media/icomoon.eot?gwnvke": "/ieschools/static/media/icomoon.25588b946f1d6e517ac0.eot",
+    "static/media/icomoon.woff?gwnvke": "/ieschools/static/media/icomoon.b1b9b53fb74f03065773.woff",
+    "static/media/icomoon.ttf?gwnvke": "/ieschools/static/media/icomoon.0cb993d8ac397e6a170d.ttf",
+    "static/media/logo.svg": "/ieschools/static/media/logo.b2e5a01e505f739f1484b881277d5186.svg",
+    "index.html": "/ieschools/index.html",
+    "main.8f61e9a7.css.map": "/ieschools/static/css/main.8f61e9a7.css.map",
+    "main.8c889e15.js.map": "/ieschools/static/js/main.8c889e15.js.map",
+    "787.28cb0dcd.chunk.js.map": "/ieschools/static/js/787.28cb0dcd.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8f61e9a7.css",
+    "static/js/main.8c889e15.js"
+  ]
+}
