@@ -81,6 +81,14 @@ export function Main() {
         {reportType == 3 && <IndividualReport />}
         {reportType == 4 && <TabularReport />}
       </div>
+      <div className='github-wrapper'>
+        <span id="forkongithub">
+          <a href="https://github.com/jimuyouyou/ieschools" target="__blank" className="bg-green">
+            Fork me on GitHub
+          </a>
+          {/* https://site.mockito.org/ */}
+        </span>
+      </div>
     </div >
   )
 }

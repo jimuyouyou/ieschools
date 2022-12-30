@@ -56,6 +56,7 @@
         cursor          : pointer;
         font-weight     : bold;
         padding         : 5px 30px;
+        color           : white;
       }
 
       .nthItem {
@@ -71,5 +72,40 @@
     width           : 96%;
     height          : 90%;
     margin          : 6% 2% 2% 2%;
+  }
+
+  #forkongithub {
+    position: fixed;
+    display : block;
+    top     : 0;
+    right   : 0;
+    width   : 200px;
+    overflow: hidden;
+    height  : 200px;
+    z-index : 9999;
+
+    a {
+      width            : 200px;
+      position         : absolute;
+      top              : 60px;
+      right            : -60px;
+      transform        : rotate(45deg);
+      -webkit-transform: rotate(45deg);
+      -ms-transform    : rotate(45deg);
+      -moz-transform   : rotate(45deg);
+      -o-transform     : rotate(45deg);
+      box-shadow       : 4px 4px 10px rgb(0 0 0 / 80%);
+      box-sizing       : content-box;
+      color            : #fff;
+      text-decoration  : none;
+      font-family      : arial, sans-serif;
+      text-align       : center;
+      font-weight      : 700;
+      font-size        : 1rem;
+      line-height      : 2rem;
+      background-color : $green;
+      transition       : .5s;
+      padding          : 5px 40px;
+    }
   }
 }
