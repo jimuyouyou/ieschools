@@ -11,7 +11,7 @@ export function CircularBarChart(props) {
   const ref = useRef()
   // set the dimensions and margins of the graph
   const margin = { top: 20, right: 0, bottom: 0, left: 0 },
-    width = 700 - margin.left - margin.right,
+    width = 650 - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom,
     innerRadius = 90,
     outerRadius = Math.min(width, height) / 2;   // the outerRadius goes from the middle of the SVG area to the border

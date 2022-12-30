@@ -22,7 +22,7 @@ export function TableChart(props: TableChartProps) {
   const { headers, rows, onChange } = props;
 
   return (
-    <div className='table-chart-wrapper'>
+    <div className='table-chart-wrapper styled-table'>
       <table>
         <thead>
           <tr>

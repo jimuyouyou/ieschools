@@ -41,10 +41,10 @@ export function IndividualReport() {
     if (rowInd + 1 < (rows?.length || 0)) setRowInd(rowInd + 1);
   };
 
-  console.log(school);
+  // console.log(school);
   return (
     <div className='ind-report-wrapper'>
-      {school &&
+      {school && false &&
         <div className='sections-wraper'>
           <div className='section'>
             <div className='item'>
@@ -126,7 +126,7 @@ export function IndividualReport() {
           </div>
         </div>
       }
-      <div className='ind-footer'>
+      <div className='ind-footer' style={{ display: 'none' }}>
         <button className='preButton' onClick={handlePrev} >Prev</button>
         <span>{rowInd + 1} of {rows?.length}</span>
         <button className='nextButton' onClick={handleNext}>Next</button>

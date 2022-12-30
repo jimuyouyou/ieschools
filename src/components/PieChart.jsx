@@ -9,7 +9,7 @@ export function PieChart(props) {
   const { data, id } = props;
 
   const ref = useRef()
-  const width = 700;
+  const width = 650;
   const height = 500;
   const margin = 50;
   const leftPadding = 0;

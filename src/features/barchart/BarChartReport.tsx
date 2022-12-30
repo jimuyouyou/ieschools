@@ -21,7 +21,7 @@ export function BarChartReport() {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const { headers, rows } = formatChartSchoolData(schools);
-  console.log('BarChartReport', { schools, headers, rows })
+  // console.log('BarChartReport', { schools, headers, rows })
 
   useEffect(() => {
     if (counties.length === 0) dispatch(loadCounties())

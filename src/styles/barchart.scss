@@ -30,7 +30,7 @@
       margin: 10px 0;
 
       .bar-bar {
-        transition: width 3s;
+        transition         : width 3s;
         animation          : animateThis 3s ease-in;
         animation-fill-mode: forwards;
       }

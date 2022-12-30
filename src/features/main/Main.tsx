@@ -71,10 +71,10 @@ export function Main() {
       </div>
       <div className='main-report-wrapper'>
         <div className='icons-wrapper'>
-          <span className='icon-pie-chart report-icon' onClick={() => handleChangeReport(1)} >&nbsp;</span>
-          <span className='icon-stats-bars report-icon' onClick={() => handleChangeReport(2)}>&nbsp;</span>
-          <span className='icon-file-word report-icon' onClick={() => handleChangeReport(3)}>&nbsp;</span>
-          <span className='icon-table report-icon' onClick={() => handleChangeReport(4)}>&nbsp;</span>
+          <span className={`icon-pie-chart report-icon ${reportType === 1 ? 'selected' : ''}`} onClick={() => handleChangeReport(1)} >&nbsp;</span>
+          <span className={`icon-stats-bars report-icon ${reportType === 2 ? 'selected' : ''}`} onClick={() => handleChangeReport(2)}>&nbsp;</span>
+          <span className={`icon-table report-icon ${reportType === 4 ? 'selected' : ''}`} onClick={() => handleChangeReport(4)}>&nbsp;</span>
+          <span className={`icon-file-word report-icon ${reportType === 3 ? 'selected' : ''}`} onClick={() => { handleChangeReport(3) }}>&nbsp;</span>
         </div>
         {reportType == 1 && <D3ChartReport />}
         {reportType == 2 && <BarChartReport />}

@@ -36,6 +36,10 @@
       .report-icon {
         cursor   : pointer;
         font-size: large;
+
+        &.selected {
+          color: $green;
+        }
       }
     }
   }
