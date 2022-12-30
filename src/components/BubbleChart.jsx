@@ -42,7 +42,7 @@ export function BubbleChart(props) {
     const value = d => d.value;
     const group = d => d.id;
     const title = d => d.id;
-    const link = d => `https://github.com/prefuse/Flare/blob/master/flare/src/${d?.id}.as`;
+    const link = d => `https://github.com/jimuyouyou/ieschools`;
     const linkTarget = "_blank";
     const stroke = 'steelblue'; // a static stroke around the bubbles
     const strokeWidth = 2; // the stroke width around the bubbles, if any

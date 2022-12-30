@@ -29,6 +29,7 @@
       float     : right;
       margin-top: 15px;
       color     : $blue;
+      margin-right: 200px;
 
       @media screen and (min-width: 1024px) {
         margin-right: 300px;
@@ -36,7 +37,7 @@
 
       .report-icon {
         cursor   : pointer;
-        font-size: large;
+        font-size: x-large;
 
         &.selected {
           color: $green;
