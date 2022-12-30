@@ -22,7 +22,8 @@ function App() {
         <Route path="/barchart" element={<BarChart />} />
         <Route path="/piechart" element={<PieChart />} />
         <Route path="/individual" element={<IndividualReport />} />
-        <Route path="/" element={<Navigate replace to="/home" />} />
+        {/* <Route path="/" element={<Navigate replace to="/home" />} /> */}
+        <Route path="/" element={<Main />} />
       </Routes>
     </Router>
   );

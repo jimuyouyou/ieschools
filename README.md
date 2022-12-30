@@ -1,3 +1,6 @@
+# Online Effect
+- [https://jimuyouyou.github.io/ieschools/](https://jimuyouyou.github.io/ieschools/)
+  
 # A demo project based following technologies
 - [React](https://reactjs.org/)
 - [React-Router](https://reactrouter.com/en/main) 
@@ -17,6 +20,7 @@
 - npm install && npm start
 
 # Static server deployment
+- npm run deploy
 - [Deployment](https://create-react-app.dev/docs/deployment/)
 
 # Other refs
