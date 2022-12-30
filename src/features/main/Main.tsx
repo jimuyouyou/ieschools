@@ -27,7 +27,7 @@ export function Main() {
   const selectedSchools = useAppSelector(state => state.main.selectedSchools);
   const [reportType, setReportType] = useState(1);
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -47,7 +47,7 @@ export function Main() {
   }
 
   const handleGetReport = () => {
-    navigate(`/tabular?county=${selectedCounty}&school=${selectedSchools.join(',')}`);
+    // navigate(`/tabular?county=${selectedCounty}&school=${selectedSchools.join(',')}`);
   }
 
   const handleChangeReport = (newType: number) => {

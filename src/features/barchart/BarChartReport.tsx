@@ -18,7 +18,7 @@ export function BarChartReport() {
   const selectedCounty = useAppSelector(state => state.main.selectedCounty);
   const schools = useAppSelector(state => state.main.schools.filter(it => state.main.selectedSchools.includes(it['id'])));
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const { headers, rows } = formatChartSchoolData(schools);
   // console.log('BarChartReport', { schools, headers, rows })

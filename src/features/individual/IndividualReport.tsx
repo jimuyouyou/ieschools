@@ -24,7 +24,7 @@ export function IndividualReport() {
   const schools = useAppSelector(state => state.main.schools.filter(it => state.main.selectedSchools.includes(it['id'])));
   const school = schools[rowInd];
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const { headers, rows } = formatTabularSchoolData(schools);
 

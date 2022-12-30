@@ -15,6 +15,12 @@ import './App.css';
 
 function App() {
   return (
+    <Main />
+  );
+}
+
+function AppWithRouter() {
+  return (
     <Router>
       <Routes>
         <Route path="/home" element={<Main />} />

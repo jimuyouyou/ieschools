@@ -45,7 +45,7 @@ export function D3ChartReport() {
     });
   // console.log('data', data);
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const { headers, rows } = formatTabularSchoolData(schools);
 
