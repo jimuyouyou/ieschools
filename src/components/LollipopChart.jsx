@@ -51,13 +51,16 @@ export function LollipopChart(props) {
 
     // X axis
     x.domain(Object.keys(data))
-    xAxis.transition().duration(transitionTime).call(d3.axisBottom(x))
+    xAxis.transition().duration(transitionTime).call(d3.axisBottom(x));
+    xAxis.attr('opacity', 0.8);
+    // xAxis.style({ 'stroke': 'black', 'fill': 'green', 'stroke-width': '10px'});
 
 
     // Add Y axis
     y.domain([0, d3.max(Object.values(data))]);
     yAxis.transition().duration(transitionTime).call(d3.axisLeft(y));
-
+    yAxis.attr('opacity', 0.8);
+    
     // variable u: map data to existing circle
     const j = svg.selectAll(".myLine")
       .data(data_ready)

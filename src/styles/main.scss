@@ -15,6 +15,7 @@
     .selection-label {
       margin-left: 5px;
       margin-top : 8px;
+      font-weight: bold;
     }
   }
 
@@ -41,6 +42,27 @@
           color: $green;
         }
       }
+    }
+
+    .page-footer {
+      margin-left: 15%;
+      display    : block;
+
+      .preButton,
+      .nextButton {
+        border-radius   : 10px;
+        border          : 1px solid $green;
+        background-color: $green;
+        cursor          : pointer;
+        font-weight     : bold;
+        padding         : 5px 30px;
+      }
+
+      .nthItem {
+        display: inline-block;
+        margin : 0 15%;
+      }
+
     }
   }
 

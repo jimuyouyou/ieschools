@@ -11,8 +11,8 @@ export function BubbleChart(props) {
   const ref = useRef()
   // set the dimensions and margins of the graph
   const margin = { top: 20, right: 0, bottom: 0, left: 0 },
-    width = 800 - margin.left - margin.right,
-    height = 600 - margin.top - margin.bottom;
+    width = 640 - margin.left - margin.right,
+    height = 480 - margin.top - margin.bottom;
     const transitionTime = 3000;
 
   // A function that create / update the plot for a given variable:
@@ -26,7 +26,9 @@ export function BubbleChart(props) {
       .append("svg")
       .attr("id", `mysvg`)
       .attr('data-id', id)
-      .attr("viewBox", [-margin.left, -margin.top, width, height])
+      // .attr("viewBox", [-margin.left, -margin.top, width, height])
+      .attr("width", width + margin.left + margin.right)
+      .attr("height", height + margin.top + margin.bottom)
       .attr("style", "max-width: 100%; height: auto; height: intrinsic;")
       .attr("fill", "currentColor")
       .attr("font-size", 10)

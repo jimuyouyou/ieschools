@@ -89,9 +89,10 @@ export function BarChart(props: BarChartProps) {
           )
         })}
       </div>
-      <div className='bar-footer'>
+
+      <div className='page-footer'>
         <button className='preButton' onClick={handlePrev} >Prev</button>
-        <span>{rowInd + 1} of {rows?.length}</span>
+        <span className='nthItem'>{rowInd + 1} of {rows?.length}</span>
         <button className='nextButton' onClick={handleNext}>Next</button>
       </div>
     </div>

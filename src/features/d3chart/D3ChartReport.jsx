@@ -77,9 +77,9 @@ export function D3ChartReport() {
       {chartInd === 1 && <LollipopChart data={data} id={school?.id} />}
       {chartInd === 2 && <CircularBarChart data={data} id={school?.id} />}
       {chartInd === 3 && <BubbleChart data={data} id={school?.id} />}
-      <div className='d3-footer'>
+      <div className='page-footer'>
         <button className='preButton' onClick={handlePrev} >Prev</button>
-        <span>{rowInd + 1} of {rows?.length}</span>
+        <span className='nthItem'>{rowInd + 1} of {rows?.length}</span>
         <button className='nextButton' onClick={handleNext}>Next</button>
       </div>
     </div>
