@@ -4,6 +4,7 @@ import { useAppSelector, useAppDispatch } from '../../app/hooks';
 import { PieChart } from '../../components/PieChart';
 import { CircularBarChart } from '../../components/CircularBarChart';
 import { LollipopChart } from '../../components/LollipopChart';
+import { BubbleChart } from '../../components/BubbleChart';
 import { formatTabularSchoolData } from '../../utils/schoolUtil';
 import {
   loadCounties,
@@ -61,7 +62,7 @@ export function D3ChartReport() {
     if (schools.length === 0) dispatch(loadSchools())
 
     setTimeout(() => {
-      setChartInd((chartInd + 1) % 3);
+      setChartInd((chartInd + 1) % 4);
     }, 5000);
   });
 
@@ -72,9 +73,10 @@ export function D3ChartReport() {
         <div className='label-title'>Official Name: &nbsp;</div>
         <div className='label-value'>{school?.desc}</div>
       </div>
-      {chartInd === 0 && <LollipopChart data={data} id={school?.id} />}
-      {chartInd === 1 && <PieChart data={data} id={school?.id} />}
+      {chartInd === 0 && <PieChart data={data} id={school?.id} />}
+      {chartInd === 1 && <LollipopChart data={data} id={school?.id} />}
       {chartInd === 2 && <CircularBarChart data={data} id={school?.id} />}
+      {chartInd === 3 && <BubbleChart data={data} id={school?.id} />}
       <div className='d3-footer'>
         <button className='preButton' onClick={handlePrev} >Prev</button>
         <span>{rowInd + 1} of {rows?.length}</span>
