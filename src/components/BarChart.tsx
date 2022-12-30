@@ -51,7 +51,7 @@ export function BarChart(props: BarChartProps) {
   const row = rows ? rows[rowInd] : []
   const cells = row?.filter((r: CellType) => typeof r.desc !== 'string' && !['total', 'd'].includes(r.id));
   const cellValues = cells?.map((cell: CellType) => cell.desc);
-  console.log('cells', cells);
+  // console.log('cells', cells);
   // const totalCell = row.find((r: CellType) => 'total' === r.id);
   const total: number = getMaxBarVal(cellValues);
   const generalHeader = headers?.find((header) => header.id === 'officialName');

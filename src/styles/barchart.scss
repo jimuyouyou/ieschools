@@ -1,10 +1,20 @@
+@keyframes animateThis {
+  0% {
+    width: 0px;
+  }
+
+  // 10% {
+  //   width: 10%;
+  // }
+}
+
 .bar-chart-wrapper {
   .bar-general-label {
-    margin-left: 20px;
+    margin-left  : 20px;
     margin-bottom: 30px;
 
     .label-name {
-      display: inline-block;
+      display     : inline-block;
       margin-right: 10px;
     }
 
@@ -19,7 +29,11 @@
     .bar-wrapper {
       margin: 10px 0;
 
-      .bar-bar {}
+      .bar-bar {
+        transition: width 3s;
+        animation          : animateThis 3s ease-in;
+        animation-fill-mode: forwards;
+      }
 
       .bar-label {}
     }

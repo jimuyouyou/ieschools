@@ -17,9 +17,10 @@
     border-right: 10px solid transparent;
     border-top  : 20px solid $light-blue;
     position    : relative;
-    right       : 20px;
-    top         : 5px;
+    right       : 22px;
+    top         : 4px;
     cursor      : pointer;
+    zoom        : 0.8;
   }
 
   .dropdown-items {
