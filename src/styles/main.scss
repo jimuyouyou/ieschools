@@ -14,7 +14,7 @@
 
     .selection-label {
       margin-left: 5px;
-      margin-top: 8px;
+      margin-top : 8px;
     }
   }
 
@@ -27,6 +27,7 @@
     .icons-wrapper {
       float     : right;
       margin-top: 15px;
+      color     : $blue;
 
       @media screen and (min-width: 1024px) {
         margin-right: 300px;
