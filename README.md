@@ -1,6 +1,7 @@
 # Online Site
 - [https://jimuyouyou.github.io/ieschools/](https://jimuyouyou.github.io/ieschools/)
-- ![Data Visualization](./public/dvideo.gif "Screenshots")
+
+![Data Visualization](https://raw.githubusercontent.com/jimuyouyou/ieschools/main/public/dvideo.gif  "Screenshots")
 
 # Data Visualization for Primary Schools Using Following Technologies
 - [TypeScript](https://www.typescriptlang.org/docs/handbook/2/basic-types.html)
