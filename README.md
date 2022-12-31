@@ -21,9 +21,9 @@
 - Donut Chart
 - Table Chart
 
-# Quick start
+# Quick Start
 - npm install && npm start
 
-# Static server deployment
+# Static Server Deployment
 - npm run deploy
 - [Deployment](https://create-react-app.dev/docs/deployment/)
