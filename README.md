@@ -1,20 +1,24 @@
-# Online Effect
+# Online Site
 - [https://jimuyouyou.github.io/ieschools/](https://jimuyouyou.github.io/ieschools/)
-  
-# A demo project based following technologies
+- ![Data Visualization](./public/dvideo.gif "Screenshots")
+
+# Data Visualization for Primary Schools Using Following Technologies
+- [TypeScript](https://www.typescriptlang.org/docs/handbook/2/basic-types.html)
 - [React](https://reactjs.org/)
+- [D3.js](https://d3js.org/)
 - [React-Router](https://reactrouter.com/en/main) 
 - [Redux](https://redux.js.org/) 
 - [Redux Toolkit](https://redux-toolkit.js.org/)
-- [TypeScript](https://www.typescriptlang.org/docs/handbook/2/basic-types.html)
 - [Sass](https://sass-lang.com/)
   
-
 # Features
-- Select one county in a searchable dropdownlist
-- Select multiple schools of same county
-- Sortable Table show of detailed information of selected schools
-- Click school name to get Pie chart, bar chart and detailed information of that school
+- Select county and schools
+- Lollipop Chart
+- Bubble Chart
+- Pie Chart
+- Bar Chart
+- Donut Chart
+- Table Chart
 
 # Quick start
 - npm install && npm start
@@ -22,6 +26,3 @@
 # Static server deployment
 - npm run deploy
 - [Deployment](https://create-react-app.dev/docs/deployment/)
-
-# Other refs
-- [material ui](https://github.com/mui/material-ui/tree/master/packages/mui-material/src)
